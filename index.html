@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metatron Multi Services | Impression & Personnalisation Haut de Gamme</title>
+    <meta name="description" content="Technologie au service de vos idées. Personnalisation textile, impression, design – rapide, sur mesure, pour tous vos projets.">
+    
+    <!-- Google Fonts - Typographie Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#F59E0B',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                        accent: '#3B82F6',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        /* Styles personnalisés */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        
+       
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3B82F6, #F59E0B);
+            z-index: 1;
+        }
+        
+        .process-step:first-child::before {
+            top: 50%;
+        }
+        
+        .process-step:last-child::before {
+            height: 50%;
+        }
+        
+        .testimonial-card {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+        
+        /* Animation classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in {
+            opacity: 1;
+        }
+        
+        .slide-up {
+            transform: translateY(0);
+        }
+        
+        .scale-in {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark antialiased">
+    <!-- Bandeau d'urgence -->
+    <div class="bg-primary text-white text-sm py-2 px-4 flex flex-wrap justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <a href="tel:+1234567890" class="hover:text-secondary transition">
+                <i class="fas fa-phone-alt mr-1"></i> +123 456 7890
+            </a>
+            <a href="mailto:contact@metatron.com" class="hover:text-secondary transition">
+                <i class="fas fa-envelope mr-1"></i> contact@metatron.com
+            </a>
+        </div>
+        <a href="#contact" class="bg-secondary hover:bg-yellow-600 text-white font-semibold px-4 py-1 rounded-full transition transform hover:scale-105">
+            Demander un devis
+        </a>
+    </div>
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+               <img src="logometatron.jpeg" width="45" height="30" alt="">
+            </a>
+            
+            <!-- Menu principal - Desktop -->
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="text-primary font-medium hover:text-secondary transition">Accueil</a>
+                <a href="#about" class="text-dark font-medium hover:text-secondary transition">À propos</a>
+                
+                <!-- Menu déroulant Services -->
+                <div class="relative group">
+                    <button class="flex items-center text-dark font-medium hover:text-secondary transition">
+                        Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-64 bg-white shadow-xl rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Impression textile</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Supports papier</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Objets personnalisés</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Conception graphique</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Produits événementiels</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Services techniques</a>
+                    </div>
+                </div>
+                
+                <a href="#portfolio" class="text-dark font-medium hover:text-secondary transition">Portfolio</a>
+                <a href="#testimonials" class="text-dark font-medium hover:text-secondary transition">Témoignages</a>
+                <a href="#blog" class="text-dark font-medium hover:text-secondary transition">Blog</a>
+                <a href="#contact" class="text-dark font-medium hover:text-secondary transition">Contact</a>
+                <a href="#shop" class="text-dark font-medium hover:text-secondary transition">Boutique</a>
+            </nav>
+            
+            <!-- Icônes rapides -->
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-dark hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-dark hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark hover:text-primary transition"><i class="fab fa-whatsapp"></i></a>
+                <button class="text-dark hover:text-primary transition"><i class="fas fa-search"></i></button>
+                <a href="#" class="text-dark hover:text-primary transition relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="absolute -top-2 -right-2 bg-secondary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                </a>
+                
+                <!-- Menu Burger Mobile -->
+                <button id="mobile-menu-button" class="lg:hidden text-dark">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3">
+                <a href="index.html" class="block py-2 hover:text-primary">Accueil</a>
+                <a href="#about" class="block py-2 hover:text-primary">À propos</a>
+                
+                <!-- Menu déroulant Services Mobile -->
+                <div class="relative">
+                    <button id="mobile-services-button" class="w-full flex justify-between items-center py-2">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-4">
+                        <a href="#" class="block py-2 hover:text-primary">Impression textile</a>
+                        <a href="#" class="block py-2 hover:text-primary">Supports papier</a>
+                        <a href="#" class="block py-2 hover:text-primary">Objets personnalisés</a>
+                        <a href="#" class="block py-2 hover:text-primary">Conception graphique</a>
+                        <a href="#" class="block py-2 hover:text-primary">Produits événementiels</a>
+                        <a href="#" class="block py-2 hover:text-primary">Services techniques</a>
+                    </div>
+                </div>
+                
+                <a href="#portfolio" class="block py-2 hover:text-primary">Portfolio</a>
+                <a href="#testimonials" class="block py-2 hover:text-primary">Témoignages</a>
+                <a href="#blog" class="block py-2 hover:text-primary">Blog</a>
+                <a href="#contact" class="block py-2 hover:text-primary">Contact</a>
+                <a href="#shop" class="block py-2 hover:text-primary">Boutique</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="relative hero-video h-screen flex items-center justify-center text-white overflow-hidden">
+        <!-- Video de fond -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop class="w-full h-full object-cover">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-working-on-a-textile-loom-39898-large.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        
+        <!-- Contenu Hero -->
+        <div class="container mx-auto px-4 z-10 text-center animate-on-scroll" id="hero-content">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 font-serif">La technologie au service de vos idées</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Personnalisation textile, impression, design – rapide, sur mesure, pour tous vos projets</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-secondary hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-full transition transform hover:scale-105">
+                    Demander un devis
+                </a>
+                <a href="#shop" class="bg-transparent hover:bg-white hover:text-primary text-white font-semibold px-8 py-3 border-2 border-white rounded-full transition transform hover:scale-105">
+                    Voir la boutique
+                </a>
+            </div>
+            
+            <!-- Badge flottant -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white text-primary px-6 py-2 rounded-full shadow-lg flex items-center space-x-2 animate-bounce">
+                <span class="text-sm font-semibold">Livraison rapide • Qualité garantie • Dès 1 pièce</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll" id="services-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary font-serif mb-4">Découvrez nos services</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 transition-all duration-300 animate-on-scroll" id="service-1">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                        <i class="fas fa-tshirt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Impression textile</h3>
+                    <p class="text-gray-600 mb-4">Personnalisation de vêtements et textiles avec les dernières technologies d'impression.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 transition-all duration-300 animate-on-scroll" id="service-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                        <i class="fas fa-file-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Supports papier</h3>
+                    <p class="text-gray-600 mb-4">Création et impression de supports papier de qualité pour votre communication.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 transition-all duration-300 animate-on-scroll" id="service-3">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                        <i class="fas fa-gift text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Objets personnalisés</h3>
+                    <p class="text-gray-600 mb-4">Personnalisation d'objets divers pour vos cadeaux d'entreprise ou événements.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 transition-all duration-300 animate-on-scroll" id="service-4">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                        <i class="fas fa-calendar-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Produits événementiels</h3>
+                    <p class="text-gray-600 mb-4">Tout pour vos événements : goodies, décoration, signalétique personnalisée.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 transition-all duration-300 animate-on-scroll" id="service-5">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                        <i class="fas fa-pen-fancy text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Conception graphique</h3>
+                    <p class="text-gray-600 mb-4">Création de logos, chartes graphiques et designs sur mesure pour vos projets.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 transition-all duration-300 animate-on-scroll" id="service-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                        <i class="fas fa-tools text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Services techniques</h3>
+                    <p class="text-gray-600 mb-4">Solutions techniques pour l'impression et la personnalisation industrielle.</p>
+                    <a href="#" class="text-primary font-medium flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-on-scroll" id="services-cta">
+                <a href="#" class="inline-block bg-primary hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full transition transform hover:scale-105">
+                    Voir tous nos services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Avantages -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll" id="advantages-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary font-serif mb-4">Pourquoi choisir Metatron Multi Services ?</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Avantage 1 -->
+                <div class="flex items-start animate-on-scroll" id="advantage-1">
+                    <div class="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">Commande dès 1 pièce</h3>
+                        <p class="text-gray-600">Pas de quantité minimum, nous adaptons nos services à vos besoins.</p>
+                    </div>
+                </div>
+                
+                <!-- Avantage 2 -->
+                <div class="flex items-start animate-on-scroll" id="advantage-2">
+                    <div class="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">Livraison rapide nationale</h3>
+                        <p class="text-gray-600">Expédition sous 48h pour la plupart de nos produits.</p>
+                    </div>
+                </div>
+                
+                <!-- Avantage 3 -->
+                <div class="flex items-start animate-on-scroll" id="advantage-3">
+                    <div class="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">Options économiques et packs</h3>
+                        <p class="text-gray-600">Des tarifs dégressifs et des packs avantageux pour vos besoins récurrents.</p>
+                    </div>
+                </div>
+                
+                <!-- Avantage 4 -->
+                <div class="flex items-start animate-on-scroll" id="advantage-4">
+                    <div class="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">Matériaux durables</h3>
+                        <p class="text-gray-600">Sélection rigoureuse de matériaux écologiques et de qualité.</p>
+                    </div>
+                </div>
+                
+                <!-- Avantage 5 -->
+                <div class="flex items-start animate-on-scroll" id="advantage-5">
+                    <div class="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">Impression & broderie haute qualité</h3>
+                        <p class="text-gray-600">Technologies de pointe pour des résultats impeccables et durables.</p>
+                    </div>
+                </div>
+                
+                <!-- Avantage 6 -->
+                <div class="flex items-start animate-on-scroll" id="advantage-6">
+                    <div class="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-1">Conseils experts</h3>
+                        <p class="text-gray-600">Notre équipe vous guide pour choisir la meilleure solution.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-on-scroll" id="advantages-cta">
+                <a href="#contact" class="inline-block bg-secondary hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-full transition transform hover:scale-105">
+                    Obtenez votre devis personnalisé
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Processus -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll" id="process-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary font-serif mb-4">Notre processus en 3 étapes</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">De votre idée au produit fini, nous vous accompagnons à chaque étape</p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Étape 1 -->
+                <div class="process-step relative pb-16 animate-on-scroll" id="process-1">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 order-1 md:order-1">
+                            <div class="bg-gray-100 rounded-xl p-6 shadow-inner">
+                                <h3 class="text-xl font-bold text-primary mb-2">1. Vous partagez votre projet</h3>
+                                <p class="text-gray-600">Contactez-nous avec vos idées, vos besoins et vos contraintes. Nous analysons ensemble la faisabilité et vous proposons des solutions adaptées.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center order-2 md:order-2">
+                            <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl shadow-lg">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Étape 2 -->
+                <div class="process-step relative pb-16 animate-on-scroll" id="process-2">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-8 md:mb-0 md:pl-8 order-1 md:order-2">
+                            <div class="bg-gray-100 rounded-xl p-6 shadow-inner">
+                                <h3 class="text-xl font-bold text-primary mb-2">2. Nous concevons et imprimons</h3>
+                                <p class="text-gray-600">Nos designers créent des maquettes que nous validons avec vous. Une fois approuvé, nous lançons la production avec les meilleures techniques.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center order-2 md:order-1">
+                            <div class="w-24 h-24 bg-secondary rounded-full flex items-center justify-center text-white text-3xl shadow-lg">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Étape 3 -->
+                <div class="process-step relative animate-on-scroll" id="process-3">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 order-1 md:order-1">
+                            <div class="bg-gray-100 rounded-xl p-6 shadow-inner">
+                                <h3 class="text-xl font-bold text-primary mb-2">3. Votre produit arrive prêt à l'emploi</h3>
+                                <p class="text-gray-600">Nous assurons un contrôle qualité rigoureux avant de vous livrer votre commande, prête à être utilisée ou distribuée.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center order-2 md:order-2">
+                            <div class="w-24 h-24 bg-accent rounded-full flex items-center justify-center text-white text-3xl shadow-lg">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portfolio -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll" id="portfolio-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary font-serif mb-4">Nos réalisations</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Projet 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-1">
+                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Projet textile personnalisé" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">T-shirts événementiel</h3>
+                            <p class="text-gray-200">Impression sérigraphique pour un festival local</p>
+                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-2">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Supports papier corporate" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Supports corporate</h3>
+                            <p class="text-gray-200">Cartes de visite et brochures pour une entreprise</p>
+                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-3">
+                    <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Goodies personnalisés" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Goodies d'entreprise</h3>
+                            <p class="text-gray-200">Objets promotionnels pour un salon professionnel</p>
+                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 4 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-4">
+                    <img src="https://images.unsplash.com/photo-1556909114-44e2d8e8ca0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Signalétique événementielle" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Signalétique événement</h3>
+                            <p class="text-gray-200">Décoration et orientation pour un mariage</p>
+                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-on-scroll" id="portfolio-cta">
+                <a href="#" class="inline-block bg-primary hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full transition transform hover:scale-105">
+                    Voir toutes nos réalisations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="testimonials" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll" id="testimonials-title">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Ils nous font confiance</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card bg-white/10 p-8 rounded-lg backdrop-blur-sm animate-on-scroll" id="testimonial-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Marie Dupont" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Marie Dupont</h4>
+                            <div class="flex text-yellow-300 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Excellent service pour nos goodies d'entreprise. Qualité irréprochable et délais respectés malgré notre commande urgente. Je recommande vivement!"</p>
+                </div>
+                
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card bg-white/10 p-8 rounded-lg backdrop-blur-sm animate-on-scroll" id="testimonial-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Martin" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Jean Martin</h4>
+                            <div class="flex text-yellow-300 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Nous travaillons avec Metatron depuis 3 ans pour nos besoins en textile personnalisé. Toujours à l'écoute et force de proposition. Un partenaire de confiance."</p>
+                </div>
+                
+                <!-- Témoignage 3 -->
+                <div class="testimonial-card bg-white/10 p-8 rounded-lg backdrop-blur-sm animate-on-scroll" id="testimonial-3">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sophie Lambert" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophie Lambert</h4>
+                            <div class="flex text-yellow-300 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Pour notre mariage, nous avons commandé la signalétique et les cadeaux pour les invités. Tout était parfait, exactement comme nous l'avions imaginé. Merci!"</p>
+                </div>
+            </div>
+            
+            <!-- Filtres témoignages -->
+            <div class="flex flex-wrap justify-center gap-3 mt-8 animate-on-scroll" id="testimonials-filters">
+                <button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition">Tous</button>
+                <button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition">Entreprises</button>
+                <button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition">Événements</button>
+                <button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition">Particuliers</button>
+                <button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition">Associations</button>
+            </div>
+            
+            <!-- Logos clients -->
+            <div class="flex flex-wrap justify-center items-center gap-8 mt-16 animate-on-scroll" id="clients-logos">
+                <img src="https://via.placeholder.com/120x60?text=Client+1" alt="Logo client" class="h-12 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x60?text=Client+2" alt="Logo client" class="h-12 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x60?text=Client+3" alt="Logo client" class="h-12 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x60?text=Client+4" alt="Logo client" class="h-10 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x60?text=Client+5" alt="Logo client" class="h-14 opacity-70 hover:opacity-100 transition">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA Finale -->
+    <section class="relative py-32 bg-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Atelier de production" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80 mix-blend-multiply"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center animate-on-scroll" id="final-cta">
+            <h2 class="text-3xl md:text-5xl font-bold font-serif mb-6">Vous avez un projet ?<br>Transformons-le ensemble.</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Notre équipe est prête à concrétiser vos idées avec professionnalisme et créativité.</p>
+            <a href="#contact" class="inline-block bg-secondary hover:bg-yellow-600 text-white font-semibold px-10 py-4 rounded-full text-lg transition transform hover:scale-105 shadow-xl">
+                Contactez-nous maintenant
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Colonne 1 -->
+                <div class="animate-on-scroll" id="footer-col-1">
+                    <a href="index.html" class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-2">MMS</div>
+                        <span class="text-xl font-bold text-white">Metatron Multi Services</span>
+                    </a>
+                    <p class="text-gray-400 mb-4">La technologie au service de vos idées depuis 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Colonne 2 -->
+                <div class="animate-on-scroll" id="footer-col-2">
+                    <h3 class="text-lg font-semibold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">À propos</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 3 -->
+                <div class="animate-on-scroll" id="footer-col-3">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Impression textile</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Supports papier</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Objets personnalisés</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Produits événementiels</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Conception graphique</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Services techniques</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 4 -->
+                <div class="animate-on-scroll" id="footer-col-4">
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <address class="not-italic text-gray-400">
+                        <p class="mb-2">123 Rue de l'Innovation</p>
+                        <p class="mb-2">75000 Paris, France</p>
+                        <p class="mb-2"><a href="tel:+1234567890" class="hover:text-white transition">+123 456 7890</a></p>
+                        <p class="mb-4"><a href="mailto:contact@metatron.com" class="hover:text-white transition">contact@metatron.com</a></p>
+                    </address>
+                    <div class="flex items-center space-x-2">
+                        <img src="https://via.placeholder.com/40x25?text=CB" alt="Carte Bleue" class="h-6">
+                        <img src="https://via.placeholder.com/40x25?text=PayPal" alt="PayPal" class="h-6">
+                        <img src="https://via.placeholder.com/40x25?text=Stripe" alt="Stripe" class="h-6">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center animate-on-scroll" id="footer-bottom">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Metatron Multi Services. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">Mentions légales</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Menu mobile
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        document.getElementById('mobile-services-button').addEventListener('click', function() {
+            const submenu = document.getElementById('mobile-services-menu');
+            submenu.classList.toggle('hidden');
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('fade-in');
+                    
+                    // Animation spécifique en fonction de l'ID
+                    if (element.id.includes('service') || element.id.includes('advantage') || element.id.includes('project') || element.id.includes('testimonial')) {
+                        anime({
+                            targets: element,
+                            translateY: [20, 0],
+                            opacity: [0, 1],
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                    } else if (element.id.includes('process')) {
+                        anime({
+                            targets: element,
+                            scale: [0.9, 1],
+                            opacity: [0, 1],
+                            duration: 600,
+                            easing: 'easeOutExpo'
+                        });
+                    } else {
+                        anime({
+                            targets: element,
+                            opacity: [0, 1],
+                            duration: 600,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                }
+            });
+        }
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Hero animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroContent = document.getElementById('hero-content');
+            
+            anime.timeline({
+                easing: 'easeOutExpo'
+            })
+            .add({
+                targets: heroContent.querySelector('h1'),
+                opacity: [0, 1],
+                translateY: [40, 0],
+                duration: 1000
+            })
+            .add({
+                targets: heroContent.querySelector('p'),
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800
+            }, '-=600')
+            .add({
+                targets: heroContent.querySelector('div'),
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 600
+            }, '-=400');
+        });
+    </script>
+</body>
+</html>
