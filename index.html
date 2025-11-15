@@ -489,69 +489,156 @@ Appel 3381- 5990
 
     <!-- Section Portfolio -->
     <section id="portfolio" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-on-scroll" id="portfolio-title">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary font-serif mb-4">Nos réalisations</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Projet 1 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-1">
-                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Projet textile personnalisé" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
-                        <div>
-                            <h3 class="text-white text-xl font-bold mb-1">T-shirts événementiel</h3>
-                            <p class="text-gray-200">Impression sérigraphique pour un festival local</p>
-                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Projet 2 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-2">
-                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Supports papier corporate" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
-                        <div>
-                            <h3 class="text-white text-xl font-bold mb-1">Supports corporate</h3>
-                            <p class="text-gray-200">Cartes de visite et brochures pour une entreprise</p>
-                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Projet 3 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-3">
-                    <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Goodies personnalisés" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
-                        <div>
-                            <h3 class="text-white text-xl font-bold mb-1">Goodies d'entreprise</h3>
-                            <p class="text-gray-200">Objets promotionnels pour un salon professionnel</p>
-                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Projet 4 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll" id="project-4">
-                    <img src="https://images.unsplash.com/photo-1556909114-44e2d8e8ca0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Signalétique événementielle" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
-                        <div>
-                            <h3 class="text-white text-xl font-bold mb-1">Signalétique événement</h3>
-                            <p class="text-gray-200">Décoration et orientation pour un mariage</p>
-                            <a href="#" class="mt-2 inline-block text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-primary transition">Voir détail</a>
-                        </div>
+    <div class="container mx-auto px-4">
+        
+        <!-- Title -->
+        <div class="text-center mb-16 animate-on-scroll" id="portfolio-title">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary font-serif mb-4">Nos réalisations</h2>
+            <div class="w-20 h-1 bg-secondary mx-auto"></div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- 4 projets visibles -->
+            <!-- Projet 1 -->
+            <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                <img src="meta1.jpeg"
+                class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                    <div>
+                        <h3 class="text-white text-xl font-bold mb-1">T-shirts événementiel</h3>
+                        <p class="text-gray-200">Impression sérigraphique</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-12 animate-on-scroll" id="portfolio-cta">
-                <a href="#" class="inline-block bg-primary hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full transition transform hover:scale-105">
-                    Voir toutes nos réalisations
-                </a>
+
+            <!-- Projet 2 -->
+            <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                <img src="meta2.jpeg"
+                class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                    <div>
+                        <h3 class="text-white text-xl font-bold mb-1">Supports corporate</h3>
+                        <p class="text-gray-200">Brochures & cartes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                <img src="meta3.jpeg"
+                class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                    <div>
+                        <h3 class="text-white text-xl font-bold mb-1">Goodies d'entreprise</h3>
+                        <p class="text-gray-200">Objets promotionnels</p>
+                    </div>
+                </div>
+            </div>
+
+              <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                <img src="meta10.jpeg"
+                class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                    <div>
+                        <h3 class="text-white text-xl font-bold mb-1">Goodies d'entreprise</h3>
+                        <p class="text-gray-200">Objets promotionnels</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🔥 5 nouveaux projets cachés -->
+            <div id="more-projects" class="hidden contents">
+
+                <!-- Projet 5 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                    <img src="meta5.jpeg"
+                    class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Projet supplémentaire 1</h3>
+                            <p class="text-gray-200">Description ici</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                    <img src="meta6.jpeg"
+                    class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Projet supplémentaire 2</h3>
+                            <p class="text-gray-200">Description ici</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 7 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                    <img src="meta7.jpeg"
+                    class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Projet supplémentaire 3</h3>
+                            <p class="text-gray-200">Description ici</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 8 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                    <img src="meta8.jpeg"
+                    class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Projet supplémentaire 4</h3>
+                            <p class="text-gray-200">Description ici</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 9 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg animate-on-scroll">
+                    <img src="meta9.jpeg"
+                    class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-1">Projet supplémentaire 5</h3>
+                            <p class="text-gray-200">Description ici</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+
+        <!-- CTA Button -->
+        <div class="text-center mt-12 animate-on-scroll">
+            <button id="see-more-btn" 
+                class="inline-block bg-primary hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full transition transform hover:scale-105">
+                Voir toutes nos réalisations
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- JS -->
+<script>
+document.getElementById("see-more-btn").addEventListener("click", function () {
+    const moreProjects = document.getElementById("more-projects");
+
+    moreProjects.classList.toggle("hidden");
+
+    if (!moreProjects.classList.contains("hidden")) {
+        this.textContent = "Voir moins";
+    } else {
+        this.textContent = "Voir toutes nos réalisations";
+    }
+});
+</script>
+
 
     <!-- Section Témoignages -->
     <section id="testimonials" class="py-20 hidden bg-primary text-white">
